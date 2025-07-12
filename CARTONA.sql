@@ -22,20 +22,22 @@ where ol.retailer_id is null ;
  
  
 -- 4.Churned Retailers who didn't do any delivered order in the last 30 days and their total GMV lifetime is above 3000
-with total_churn_table as (select retailer_id , sum(GMV)  from orders 
-                             group by 1 
-                             having sum(GMV) > 3000) 
-	
-select tct.retailer_id
-from total_churn_table AS tct
-WHERE NOT EXISTS (
-    SELECT *
-    from orders o
-    where o.retailer_id = tct.retailer_id
-      and o.status = 'Delivered'
-      and o.created_at >= (SELECT MAX(created_at) FROM orders) - INTERVAL 30 DAY
+with total_churn_table as (
+    select retailer_id, sum(gmv) as total_gmv      -- cte to filter retailers with gmv above 3k 
+    from orders
+    group by retailer_id
+    having sum(gmv) > 3000
+)
+select retailer_id
+from total_churn_table
+where retailer_id not in (     -- filtering with not in 
+    select retailer_id
+    from orders
+    where retailer_id is not null
+      and status = 'delivered'
+      and created_at >= (select max(created_at) from orders) - interval 30 day
 );
-                             
+                        
 
 
 
@@ -156,7 +158,7 @@ retention as (
     from retailers_per_month curr
     left join retailers_per_month prev
       on curr.retailer_id = prev.retailer_id
-     and curr.month = prev.month + 1
+     and curr.month = prev.month + 1    -- used +1 to have month and next month in the same same row so the comparison work
     group by curr.month
 )
 select month,
