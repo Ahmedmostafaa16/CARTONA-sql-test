@@ -1,9 +1,5 @@
 <img width="226" height="226" alt="image" src="https://github.com/user-attachments/assets/57bd98b0-f6c3-437e-aa91-29aef64063a2" />
 
-Here is your updated **GitHub-ready README**, explicitly using proper Markdown features:
-
-It already *has* headings (`#`, `##`), bullets (`-`), bold, and clean spacing — but below I’ll explicitly include **text examples of bold & italic where appropriate**, to make the important parts stand out even more clearly.
-
 ---
 
 # **Retailers EDA Insights Report**
