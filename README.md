@@ -1,135 +1,120 @@
 <img width="226" height="226" alt="image" src="https://github.com/user-attachments/assets/57bd98b0-f6c3-437e-aa91-29aef64063a2" />
 
-Retailers EDA Insights Report
-This report outlines key exploratory data analysis (EDA) insights about retailers, along with visualization suggestions and actionable recommendations.
+Here is your updated **GitHub-ready README**, explicitly using proper Markdown features:
 
-1. Retrieve Active Retailers in the Last 30 Days (Rolling)
-Insights
+It already *has* headings (`#`, `##`), bullets (`-`), bold, and clean spacing — but below I’ll explicitly include **text examples of bold & italic where appropriate**, to make the important parts stand out even more clearly.
 
-Display the number of active retailers.
+---
 
-Use a line chart to visualize the number of active retailers per month and compare to previous months.
+# **Retailers EDA Insights Report**
 
-Recommendation
+**Department of Data Analysis**
+*2025*
 
-Analyze why the number may be high or low (e.g., seasonality, promotions, holidays).
+---
 
-2. Retrieve Sign-Up Retailers in the Last 30 Days
-Insights
+## 1. **Retrieve Active Retailers in the Last 30 Days (Rolling)**
 
-Use a line chart to visualize the number of new signed-up retailers per month and compare to previous months.
+* **Display** number of active retailers.
+* **Use** line chart to visualize number of active retailers per month and compare to the last months.
+* **Recommendation:** *Analyze why the number may be high or low (e.g., seasonality, promotions, holidays).*
 
-Recommendation
+---
 
-Investigate the reasons for any significant changes in sign-ups (marketing campaigns, onboarding experience).
+## 2. **Retrieve Sign-Up Retailers in the Last 30 Days**
 
-3. New Retailers in the Last 30 Days
-Insights
+* **Use** line chart to visualize number of new signed-up retailers per month and compare to the last months.
+* **Recommendation:** *Investigate reasons for significant changes in sign-ups.*
 
-Display the number of new retailers.
+---
 
-Recommendation
+## 3. **New Retailers in the Last 30 Days**
 
-Contact these retailers to gather feedback about their experience and identify any problems or areas for improvement.
+* **Display** number of new retailers.
+* **Recommendation:** *Contact these retailers to ask about their experience, the problems they faced, and how the experience can be enhanced.*
 
-4. Churned Retailers (No Delivered Orders in Last 30 Days & Lifetime GMV > 3000)
-Insights
+---
 
-Display the number of churned retailers.
+## 4. **Churned Retailers Who Didn't Do Any Delivered Order in the Last 30 Days and Have Total GMV Lifetime > 3000**
 
-Recommendation
+* **Display** number of churned retailers.
+* **Recommendation:** *Contact these retailers to understand why they stopped ordering and present the BNPL system if they are financially struggling.*
 
-Reach out to understand why they stopped ordering.
+---
 
-Present the BNPL (Buy Now, Pay Later) system in case they are facing financial challenges.
+## 5. **Churned Retailers Whose Last Order Was Between 60 and 30 Days Ago**
 
-5. Retailers Whose Last Order Was Between 60 and 30 Days Ago
-Insights
+* **Display** number of these retailers.
+* **Recommendation:** *Same as number 4.*
 
-Display the number of these retailers.
+---
 
-Recommendation
+## 6. **Retailers Who Didn't Create Any Orders**
 
-Same as recommendation for point 4: contact and explore reasons for inactivity.
+* **Display** number of these retailers.
+* **Recommendation:** *Contact them to find out if they have trouble using the technology, need installments (BNPL), or require products the company does not offer.*
 
-6. Retailers Who Didn’t Create Any Orders
-Insights
+---
 
-Display the number of these retailers.
+## 7. **Retailers Who Created Orders But Not Delivered**
 
-Recommendation
+* **Display** number of these retailers.
+* **Recommendation:** *Investigate the reason — whether the retailers refused to receive the orders or they are facing shipping problems.*
 
-Contact them to understand if they face challenges with the technology, need specific products, or require financial support (e.g., BNPL).
+---
 
-7. Retailers Who Created Orders but None Delivered
-Insights
+## 8. **Retailers Who Did More Than 5 Delivered Orders in the Last 30 Days With Their Total GMV**
 
-Display the number of these retailers.
+* **Display** number of these retailers.
+* **Recommendation:** *Increase their credit limit if their credit score is high.*
 
-Recommendation
+---
 
-Investigate whether the issue is due to the retailer refusing to receive orders or shipping/logistics problems.
+## 9. **Retailers Who Were Active Last Month and Still Active This Month**
 
-8. Retailers with More Than 5 Delivered Orders in the Last 30 Days (with Total GMV)
-Insights
+* **Display** number of these retailers.
+* **Recommendation:** *Same as number 8.*
 
-Display the number of these retailers.
+---
 
-Recommendation
+## 10. **Orders With More Than 5 Products**
 
-Consider increasing their credit limit if their credit score is high to allow them to order more.
+* **Display** the percentages of orders with below and above 5 products.
 
-9. Retailers Active Last Month and Still Active This Month
-Insights
+---
 
-Display the number of these retailers.
+## 11. **Average Number of Items in Orders**
 
-Recommendation
+* **Display** the percentages of orders below and above the average.
 
-Same as point 8: assess their creditworthiness and consider increasing credit if justified.
+---
 
-10. Orders with More Than 5 Products
-Insights
+## 12. **Count of Orders and Retailers per Area**
 
-Display the percentages of orders with more than 5 products versus those with 5 or fewer.
+* **Display** the areas using a *map chart* or *bar chart*.
+* **Recommendation:** *Analyze why some areas perform better and apply similar strategies to other areas, as long as it is not related to population.*
 
-11. Average Number of Items in Orders
-Insights
+---
 
-Display the percentages of orders below and above the average number of items.
+## 13. **Number of Orders for Each Retailer in Their First 30 Days**
 
-12. Count of Orders and Retailers per Area
-Insights
+* **Display** the number.
+* **Recommendation:** *Check average products per first order and compare to subsequent usage to assess whether the retailer originally needed financial support and later utilized the BNPL (credit) system.*
 
-Display areas using a map chart or bar chart.
+---
 
-Recommendation
+## 14. **Retention Rate per Month in Year 2020**
 
-Analyze why certain areas perform better and apply successful strategies to other areas where possible.
+* **Display** the number.
+* **Measures:** *Customer loyalty.*
+* **Expectation:** *Higher retention in months 3, 4, and 5 due to quarantine and Ramadan.*
 
-13. Number of Orders for Each Retailer in Their First 30 Days
-Insights
+---
 
-Display the number of orders in the first 30 days.
+## 15. **GMV of the First Order per Retailer**
 
-Compare the average products per first order to subsequent usage.
+* **Compare** the GMV of the first order over the years (*preferably in USD*).
 
-Recommendation
+---
 
-Assess if retailers initially needed financial support and later utilized BNPL or credit systems.
 
-14. Retention Rate per Month in 2020
-Insights
-
-Display the retention rate per month.
-
-Measures customer loyalty.
-
-Recommendation
-
-Expect higher retention rates in months 3, 4, and 5 due to quarantine and Ramadan.
-
-15. GMV of the First Order per Retailer
-Insights
-
-Compare the GMV of first orders over the years (preferably in USD).
