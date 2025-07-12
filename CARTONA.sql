@@ -1,6 +1,6 @@
 
 -- 1.Retrieve Active Retailers in the last 30 days rolling? (Active Retailers : did at least 1 Delivered order)
-select o.retailer_id , r.full_name
+select distinct o.retailer_id , r.full_name
 from orders as o
 INNER join retailers as r 
 on o.retailer_id = r.id
@@ -26,15 +26,19 @@ with total_churn_table as (select retailer_id , sum(GMV)  from orders
                              group by 1 
                              having sum(GMV) > 3000) 
 	
-select tct.retailer_id 
-from total_churn_table as tct
-inner join orders as o
-using(retailer_id)
-where o.`status` != 'delivered' AND o.created_at >= (select max(created_at) from orders) - interval 30 day 
+select tct.retailer_id
+from total_churn_table AS tct
+WHERE NOT EXISTS (
+    SELECT *
+    from orders o
+    where o.retailer_id = tct.retailer_id
+      and o.status = 'Delivered'
+      and o.created_at >= (SELECT MAX(created_at) FROM orders) - INTERVAL 30 DAY
+);
                              
 
 
-;
+
 
 
 -- 5.Retailers whom their last order was between 60 days and 30 days
@@ -170,7 +174,7 @@ order by month ;
 
 
 -- 15.GMV of the first order per Retailer
-with fisrt_order_table AS (select retailer_id,min(created_at) first_date FROM orders 
+with first_order_table AS (select retailer_id,min(created_at) first_date FROM orders 
 							group by 1 ) 
 select o.retailer_id, o.gmv AS gmv_of_first_order
 from orders o
