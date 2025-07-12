@@ -12,11 +12,11 @@ from retailers
 where created_at >= (select max(created_at) from retailers) -  interval 30 day ;
 
 -- 3.New Retailers in the last 30 days (Made his first order within the last 30 days)
-with old_orders as (select retailer_id from orders where created_at < (select max(created_at) from orders) - interval 30 day)
+with old_orders as (select retailer_id from orders where created_at < (select max(created_at) from orders) - interval 30 day) -- cte for old orders to filter from 
 
 select distinct o.retailer_id 
 from orders as o
-LEFT join old_orders as ol
+LEFT join old_orders as ol    -- to display all data from left table then filter those unmacthed or nulls
 on o.retailer_id = ol.retailer_id
 where ol.retailer_id is null ;
  
@@ -113,7 +113,7 @@ from total_items_cte ;
 select a.area,count(id) as number_of_orders , count( distinct retailer_id) as number_of_retailers
 from orders as o
 inner join retailers as r
-on o.retailer_id = r.id 
+on o.retailer_id = r.id                -- joined 3 tables as orders tbale does not has areas id
 inner join areas as a
 on a.id = r.area_id
 group by 1 
